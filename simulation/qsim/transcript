@@ -1,0 +1,32 @@
+# do TLC.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:17:51 on Jun 13,2024
+# vcom -work work TLC.vho 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package maxv_atom_pack
+# -- Loading package maxv_components
+# -- Compiling entity TLC
+# -- Compiling architecture structure of TLC
+# End time: 19:17:51 on Jun 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 19:17:51 on Jun 13,2024
+# vcom -work work Waveform.vwf.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity TLC_vhd_vec_tst
+# -- Compiling architecture TLC_arch of TLC_vhd_vec_tst
+# End time: 19:17:51 on Jun 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -novopt -c -t 1ps -L maxv -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.TLC_vhd_vec_tst 
+# Start time: 19:17:51 on Jun 13,2024
+# ** Error (suppressible): (vsim-12110) The -novopt option has no effect on this product. -novopt option is now deprecated and will be removed in future releases.
+# Error loading design
+# End time: 19:17:51 on Jun 13,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0

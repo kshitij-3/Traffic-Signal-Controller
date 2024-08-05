@@ -1,0 +1,140 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/rudra/VHDL_Codes/Project/simulation/modelsim
+Eclockgen
+Z1 w1718345487
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z5 8C:/Users/rudra/VHDL_Codes/Project/TLC.vhd
+Z6 FC:/Users/rudra/VHDL_Codes/Project/TLC.vhd
+l0
+L5 1
+VPnRX5]H_j_o2czMbNUH]C2
+!s100 P6hB1@8fW3`:Omn27Ecbk1
+Z7 OV;C;2020.1;71
+31
+Z8 !s110 1718361347
+!i10b 1
+Z9 !s108 1718361347.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/rudra/VHDL_Codes/Project/TLC.vhd|
+Z11 !s107 C:/Users/rudra/VHDL_Codes/Project/TLC.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Abody1
+R2
+R3
+R4
+DEx4 work 8 clockgen 0 22 PnRX5]H_j_o2czMbNUH]C2
+!i122 0
+l15
+L12 17
+VQiZc_d[QBhKh49ALRS6O93
+!s100 1_b51><Be7OC[H_bQJb4K3
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Etest
+Z14 w1718287754
+R2
+R3
+R4
+!i122 1
+R0
+Z15 8C:/Users/rudra/VHDL_Codes/Project/test.vhd
+Z16 FC:/Users/rudra/VHDL_Codes/Project/test.vhd
+l0
+L5 1
+V[FdI@IXjbb@UOV`MeSHn`1
+!s100 gkanT0dbFAcfmQhO@F5oU1
+R7
+31
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|C:/Users/rudra/VHDL_Codes/Project/test.vhd|
+!s107 C:/Users/rudra/VHDL_Codes/Project/test.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R2
+R3
+R4
+DEx4 work 4 test 0 22 [FdI@IXjbb@UOV`MeSHn`1
+!i122 1
+l35
+L8 64
+Vdojgj6KSdBLF[;W:9@L6T0
+!s100 RML@f3gOIl3JVf?n8O8IX3
+R7
+31
+R8
+!i10b 1
+R9
+R17
+Z18 !s107 C:/Users/rudra/VHDL_Codes/Project/test.vhd|
+!i113 1
+R12
+R13
+Etlc
+R1
+R2
+R3
+R4
+!i122 0
+R0
+R5
+R6
+l0
+L34 1
+VkPWz>i<5Y`GQa8RbCTPb41
+!s100 o46MSU3:JJYmd]KOR6Y[z1
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Abody1
+R2
+R3
+R4
+DEx4 work 3 tlc 0 22 kPWz>i<5Y`GQa8RbCTPb41
+!i122 0
+l59
+L45 180
+V4ClNZ?<9fh^Oe><CeDACE3
+!s100 UYO3]Thhkl;h;>hU>g?9Y2
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13

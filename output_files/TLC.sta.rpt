@@ -1,0 +1,741 @@
+Timing Analyzer report for TLC
+Fri Jun 14 10:25:20 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'clockgen:clock_gen|b'
+ 12. Setup: 'clock'
+ 13. Hold: 'clock'
+ 14. Hold: 'clockgen:clock_gen|b'
+ 15. Setup Transfers
+ 16. Hold Transfers
+ 17. Report TCCS
+ 18. Report RSKM
+ 19. Unconstrained Paths Summary
+ 20. Clock Status Summary
+ 21. Unconstrained Input Ports
+ 22. Unconstrained Output Ports
+ 23. Unconstrained Input Ports
+ 24. Unconstrained Output Ports
+ 25. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; TLC                                                 ;
+; Device Family         ; MAX V                                               ;
+; Device Name           ; 5M1270ZT144C5                                       ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Slow Model                                          ;
+; Rise/Fall Delays      ; Unavailable                                         ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                     ;
++----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------+
+; Clock Name           ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                  ;
++----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------+
+; clock                ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clock }                ;
+; clockgen:clock_gen|b ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clockgen:clock_gen|b } ;
++----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------+
+
+
++------------------------------------------------------------+
+; Fmax Summary                                               ;
++------------+-----------------+----------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name           ; Note ;
++------------+-----------------+----------------------+------+
+; 77.53 MHz  ; 77.53 MHz       ; clockgen:clock_gen|b ;      ;
+; 112.31 MHz ; 112.31 MHz      ; clock                ;      ;
++------------+-----------------+----------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------------------+
+; Setup Summary                                  ;
++----------------------+---------+---------------+
+; Clock                ; Slack   ; End Point TNS ;
++----------------------+---------+---------------+
+; clockgen:clock_gen|b ; -11.899 ; -450.373      ;
+; clock                ; -7.904  ; -214.917      ;
++----------------------+---------+---------------+
+
+
++-----------------------------------------------+
+; Hold Summary                                  ;
++----------------------+--------+---------------+
+; Clock                ; Slack  ; End Point TNS ;
++----------------------+--------+---------------+
+; clock                ; -1.968 ; -1.968        ;
+; clockgen:clock_gen|b ; 2.116  ; 0.000         ;
++----------------------+--------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++-----------------------------------------------+
+; Minimum Pulse Width Summary                   ;
++----------------------+--------+---------------+
+; Clock                ; Slack  ; End Point TNS ;
++----------------------+--------+---------------+
+; clock                ; -2.289 ; -2.289        ;
+; clockgen:clock_gen|b ; 0.234  ; 0.000         ;
++----------------------+--------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clockgen:clock_gen|b'                                                                                          ;
++---------+-----------+-----------+----------------------+----------------------+--------------+------------+------------+
+; Slack   ; From Node ; To Node   ; Launch Clock         ; Latch Clock          ; Relationship ; Clock Skew ; Data Delay ;
++---------+-----------+-----------+----------------------+----------------------+--------------+------------+------------+
+; -11.899 ; count[19] ; count[31] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.566     ;
+; -11.899 ; count[19] ; count[29] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.566     ;
+; -11.899 ; count[19] ; count[28] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.566     ;
+; -11.899 ; count[19] ; count[27] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.566     ;
+; -11.899 ; count[19] ; count[26] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.566     ;
+; -11.899 ; count[19] ; count[30] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.566     ;
+; -11.890 ; count[19] ; count[0]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.557     ;
+; -11.890 ; count[19] ; count[1]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.557     ;
+; -11.890 ; count[19] ; count[15] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.557     ;
+; -11.890 ; count[19] ; count[14] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.557     ;
+; -11.890 ; count[19] ; count[13] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.557     ;
+; -11.890 ; count[19] ; count[12] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.557     ;
+; -11.890 ; count[19] ; count[11] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.557     ;
+; -11.890 ; count[19] ; count[10] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.557     ;
+; -11.890 ; count[19] ; count[9]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.557     ;
+; -11.890 ; count[19] ; count[8]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.557     ;
+; -11.890 ; count[19] ; count[7]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.557     ;
+; -11.890 ; count[19] ; count[6]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.557     ;
+; -11.890 ; count[19] ; count[5]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.557     ;
+; -11.890 ; count[19] ; count[4]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.557     ;
+; -11.890 ; count[19] ; count[3]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.557     ;
+; -11.890 ; count[19] ; count[2]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.557     ;
+; -11.887 ; count[19] ; count[25] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.554     ;
+; -11.887 ; count[19] ; count[24] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.554     ;
+; -11.887 ; count[19] ; count[23] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.554     ;
+; -11.887 ; count[19] ; count[22] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.554     ;
+; -11.887 ; count[19] ; count[21] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.554     ;
+; -11.887 ; count[19] ; count[20] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.554     ;
+; -11.887 ; count[19] ; count[19] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.554     ;
+; -11.887 ; count[19] ; count[18] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.554     ;
+; -11.887 ; count[19] ; count[17] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.554     ;
+; -11.887 ; count[19] ; count[16] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.554     ;
+; -11.735 ; count[2]  ; count[31] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.402     ;
+; -11.735 ; count[2]  ; count[29] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.402     ;
+; -11.735 ; count[2]  ; count[28] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.402     ;
+; -11.735 ; count[2]  ; count[27] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.402     ;
+; -11.735 ; count[2]  ; count[26] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.402     ;
+; -11.735 ; count[2]  ; count[30] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.402     ;
+; -11.726 ; count[2]  ; count[0]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.393     ;
+; -11.726 ; count[2]  ; count[1]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.393     ;
+; -11.726 ; count[2]  ; count[15] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.393     ;
+; -11.726 ; count[2]  ; count[14] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.393     ;
+; -11.726 ; count[2]  ; count[13] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.393     ;
+; -11.726 ; count[2]  ; count[12] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.393     ;
+; -11.726 ; count[2]  ; count[11] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.393     ;
+; -11.726 ; count[2]  ; count[10] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.393     ;
+; -11.726 ; count[2]  ; count[9]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.393     ;
+; -11.726 ; count[2]  ; count[8]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.393     ;
+; -11.726 ; count[2]  ; count[7]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.393     ;
+; -11.726 ; count[2]  ; count[6]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.393     ;
+; -11.726 ; count[2]  ; count[5]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.393     ;
+; -11.726 ; count[2]  ; count[4]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.393     ;
+; -11.726 ; count[2]  ; count[3]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.393     ;
+; -11.726 ; count[2]  ; count[2]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.393     ;
+; -11.723 ; count[2]  ; count[25] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.390     ;
+; -11.723 ; count[2]  ; count[24] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.390     ;
+; -11.723 ; count[2]  ; count[23] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.390     ;
+; -11.723 ; count[2]  ; count[22] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.390     ;
+; -11.723 ; count[2]  ; count[21] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.390     ;
+; -11.723 ; count[2]  ; count[20] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.390     ;
+; -11.723 ; count[2]  ; count[19] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.390     ;
+; -11.723 ; count[2]  ; count[18] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.390     ;
+; -11.723 ; count[2]  ; count[17] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.390     ;
+; -11.723 ; count[2]  ; count[16] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.390     ;
+; -11.669 ; count[21] ; count[31] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.336     ;
+; -11.669 ; count[21] ; count[29] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.336     ;
+; -11.669 ; count[21] ; count[28] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.336     ;
+; -11.669 ; count[21] ; count[27] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.336     ;
+; -11.669 ; count[21] ; count[26] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.336     ;
+; -11.669 ; count[21] ; count[30] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.336     ;
+; -11.660 ; count[21] ; count[0]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.327     ;
+; -11.660 ; count[21] ; count[1]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.327     ;
+; -11.660 ; count[21] ; count[15] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.327     ;
+; -11.660 ; count[21] ; count[14] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.327     ;
+; -11.660 ; count[21] ; count[13] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.327     ;
+; -11.660 ; count[21] ; count[12] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.327     ;
+; -11.660 ; count[21] ; count[11] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.327     ;
+; -11.660 ; count[21] ; count[10] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.327     ;
+; -11.660 ; count[21] ; count[9]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.327     ;
+; -11.660 ; count[21] ; count[8]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.327     ;
+; -11.660 ; count[21] ; count[7]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.327     ;
+; -11.660 ; count[21] ; count[6]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.327     ;
+; -11.660 ; count[21] ; count[5]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.327     ;
+; -11.660 ; count[21] ; count[4]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.327     ;
+; -11.660 ; count[21] ; count[3]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.327     ;
+; -11.660 ; count[21] ; count[2]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.327     ;
+; -11.657 ; count[21] ; count[25] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.324     ;
+; -11.657 ; count[21] ; count[24] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.324     ;
+; -11.657 ; count[21] ; count[23] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.324     ;
+; -11.657 ; count[21] ; count[22] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.324     ;
+; -11.657 ; count[21] ; count[21] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.324     ;
+; -11.657 ; count[21] ; count[20] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.324     ;
+; -11.657 ; count[21] ; count[19] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.324     ;
+; -11.657 ; count[21] ; count[18] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.324     ;
+; -11.657 ; count[21] ; count[17] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.324     ;
+; -11.657 ; count[21] ; count[16] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.324     ;
+; -11.647 ; count[11] ; count[31] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.314     ;
+; -11.647 ; count[11] ; count[29] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.314     ;
+; -11.647 ; count[11] ; count[28] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.314     ;
+; -11.647 ; count[11] ; count[27] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 1.000        ; 0.000      ; 12.314     ;
++---------+-----------+-----------+----------------------+----------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clock'                                                                                                                             ;
++--------+------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                    ; To Node                      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
+; -7.904 ; clockgen:clock_gen|count[17] ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.571      ;
+; -7.890 ; clockgen:clock_gen|count[7]  ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.557      ;
+; -7.838 ; clockgen:clock_gen|count[17] ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.505      ;
+; -7.833 ; clockgen:clock_gen|count[25] ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.500      ;
+; -7.824 ; clockgen:clock_gen|count[7]  ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.491      ;
+; -7.766 ; clockgen:clock_gen|count[19] ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.433      ;
+; -7.765 ; clockgen:clock_gen|count[1]  ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.432      ;
+; -7.736 ; clockgen:clock_gen|count[17] ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.403      ;
+; -7.722 ; clockgen:clock_gen|count[7]  ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.389      ;
+; -7.721 ; clockgen:clock_gen|count[24] ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.388      ;
+; -7.700 ; clockgen:clock_gen|count[19] ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.367      ;
+; -7.699 ; clockgen:clock_gen|count[1]  ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.366      ;
+; -7.695 ; clockgen:clock_gen|count[8]  ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.362      ;
+; -7.689 ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.356      ;
+; -7.656 ; clockgen:clock_gen|count[0]  ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.323      ;
+; -7.650 ; clockgen:clock_gen|count[9]  ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.317      ;
+; -7.646 ; clockgen:clock_gen|count[2]  ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.313      ;
+; -7.629 ; clockgen:clock_gen|count[8]  ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.296      ;
+; -7.623 ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.290      ;
+; -7.618 ; clockgen:clock_gen|count[12] ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.285      ;
+; -7.615 ; clockgen:clock_gen|count[4]  ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.282      ;
+; -7.599 ; clockgen:clock_gen|count[16] ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.266      ;
+; -7.598 ; clockgen:clock_gen|count[19] ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.265      ;
+; -7.597 ; clockgen:clock_gen|count[1]  ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.264      ;
+; -7.590 ; clockgen:clock_gen|count[0]  ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.257      ;
+; -7.589 ; clockgen:clock_gen|count[7]  ; clockgen:clock_gen|count[19] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.256      ;
+; -7.584 ; clockgen:clock_gen|count[9]  ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.251      ;
+; -7.580 ; clockgen:clock_gen|count[2]  ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.247      ;
+; -7.561 ; clockgen:clock_gen|count[7]  ; clockgen:clock_gen|count[16] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.228      ;
+; -7.552 ; clockgen:clock_gen|count[12] ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.219      ;
+; -7.549 ; clockgen:clock_gen|count[4]  ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.216      ;
+; -7.540 ; clockgen:clock_gen|count[15] ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.207      ;
+; -7.533 ; clockgen:clock_gen|count[16] ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.200      ;
+; -7.527 ; clockgen:clock_gen|count[8]  ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.194      ;
+; -7.525 ; clockgen:clock_gen|count[3]  ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.192      ;
+; -7.521 ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.188      ;
+; -7.488 ; clockgen:clock_gen|count[0]  ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.155      ;
+; -7.482 ; clockgen:clock_gen|count[9]  ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.149      ;
+; -7.479 ; clockgen:clock_gen|count[17] ; clockgen:clock_gen|count[21] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.146      ;
+; -7.478 ; clockgen:clock_gen|count[2]  ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.145      ;
+; -7.476 ; clockgen:clock_gen|count[21] ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.143      ;
+; -7.474 ; clockgen:clock_gen|count[15] ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.141      ;
+; -7.465 ; clockgen:clock_gen|count[7]  ; clockgen:clock_gen|count[21] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.132      ;
+; -7.464 ; clockgen:clock_gen|count[1]  ; clockgen:clock_gen|count[19] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.131      ;
+; -7.459 ; clockgen:clock_gen|count[3]  ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.126      ;
+; -7.454 ; clockgen:clock_gen|count[17] ; clockgen:clock_gen|count[24] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.121      ;
+; -7.450 ; clockgen:clock_gen|count[12] ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.117      ;
+; -7.447 ; clockgen:clock_gen|count[4]  ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.114      ;
+; -7.440 ; clockgen:clock_gen|count[7]  ; clockgen:clock_gen|count[24] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.107      ;
+; -7.436 ; clockgen:clock_gen|count[1]  ; clockgen:clock_gen|count[16] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.103      ;
+; -7.431 ; clockgen:clock_gen|count[16] ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.098      ;
+; -7.409 ; clockgen:clock_gen|count[24] ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.076      ;
+; -7.394 ; clockgen:clock_gen|count[8]  ; clockgen:clock_gen|count[19] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.061      ;
+; -7.388 ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[19] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.055      ;
+; -7.386 ; clockgen:clock_gen|count[6]  ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.053      ;
+; -7.377 ; clockgen:clock_gen|count[17] ; clockgen:clock_gen|count[29] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.044      ;
+; -7.377 ; clockgen:clock_gen|count[5]  ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.044      ;
+; -7.372 ; clockgen:clock_gen|count[15] ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.039      ;
+; -7.372 ; clockgen:clock_gen|count[25] ; clockgen:clock_gen|count[29] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.039      ;
+; -7.368 ; clockgen:clock_gen|count[11] ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.035      ;
+; -7.366 ; clockgen:clock_gen|count[8]  ; clockgen:clock_gen|count[16] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.033      ;
+; -7.363 ; clockgen:clock_gen|count[7]  ; clockgen:clock_gen|count[29] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.030      ;
+; -7.360 ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[16] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.027      ;
+; -7.357 ; clockgen:clock_gen|count[3]  ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.024      ;
+; -7.355 ; clockgen:clock_gen|count[0]  ; clockgen:clock_gen|count[19] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.022      ;
+; -7.349 ; clockgen:clock_gen|count[9]  ; clockgen:clock_gen|count[19] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.016      ;
+; -7.345 ; clockgen:clock_gen|count[2]  ; clockgen:clock_gen|count[19] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.012      ;
+; -7.341 ; clockgen:clock_gen|count[19] ; clockgen:clock_gen|count[21] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.008      ;
+; -7.340 ; clockgen:clock_gen|count[1]  ; clockgen:clock_gen|count[21] ; clock        ; clock       ; 1.000        ; 0.000      ; 8.007      ;
+; -7.327 ; clockgen:clock_gen|count[0]  ; clockgen:clock_gen|count[16] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.994      ;
+; -7.321 ; clockgen:clock_gen|count[9]  ; clockgen:clock_gen|count[16] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.988      ;
+; -7.320 ; clockgen:clock_gen|count[6]  ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.987      ;
+; -7.317 ; clockgen:clock_gen|count[12] ; clockgen:clock_gen|count[19] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.984      ;
+; -7.317 ; clockgen:clock_gen|count[2]  ; clockgen:clock_gen|count[16] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.984      ;
+; -7.316 ; clockgen:clock_gen|count[19] ; clockgen:clock_gen|count[24] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.983      ;
+; -7.315 ; clockgen:clock_gen|count[1]  ; clockgen:clock_gen|count[24] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.982      ;
+; -7.314 ; clockgen:clock_gen|count[4]  ; clockgen:clock_gen|count[19] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.981      ;
+; -7.311 ; clockgen:clock_gen|count[5]  ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.978      ;
+; -7.302 ; clockgen:clock_gen|count[11] ; clockgen:clock_gen|count[28] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.969      ;
+; -7.289 ; clockgen:clock_gen|count[12] ; clockgen:clock_gen|count[16] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.956      ;
+; -7.286 ; clockgen:clock_gen|count[4]  ; clockgen:clock_gen|count[16] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.953      ;
+; -7.270 ; clockgen:clock_gen|count[8]  ; clockgen:clock_gen|count[21] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.937      ;
+; -7.267 ; clockgen:clock_gen|count[20] ; clockgen:clock_gen|count[23] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.934      ;
+; -7.264 ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[21] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.931      ;
+; -7.260 ; clockgen:clock_gen|count[24] ; clockgen:clock_gen|count[29] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.927      ;
+; -7.250 ; clockgen:clock_gen|count[26] ; clockgen:clock_gen|count[12] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.917      ;
+; -7.245 ; clockgen:clock_gen|count[8]  ; clockgen:clock_gen|count[24] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.912      ;
+; -7.239 ; clockgen:clock_gen|count[15] ; clockgen:clock_gen|count[19] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.906      ;
+; -7.239 ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[24] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.906      ;
+; -7.239 ; clockgen:clock_gen|count[19] ; clockgen:clock_gen|count[29] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.906      ;
+; -7.238 ; clockgen:clock_gen|count[1]  ; clockgen:clock_gen|count[29] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.905      ;
+; -7.233 ; clockgen:clock_gen|count[26] ; clockgen:clock_gen|count[6]  ; clock        ; clock       ; 1.000        ; 0.000      ; 7.900      ;
+; -7.231 ; clockgen:clock_gen|count[0]  ; clockgen:clock_gen|count[21] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.898      ;
+; -7.225 ; clockgen:clock_gen|count[26] ; clockgen:clock_gen|b         ; clock        ; clock       ; 1.000        ; 0.000      ; 7.892      ;
+; -7.225 ; clockgen:clock_gen|count[9]  ; clockgen:clock_gen|count[21] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.892      ;
+; -7.224 ; clockgen:clock_gen|count[3]  ; clockgen:clock_gen|count[19] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.891      ;
+; -7.221 ; clockgen:clock_gen|count[2]  ; clockgen:clock_gen|count[21] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.888      ;
+; -7.218 ; clockgen:clock_gen|count[6]  ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.885      ;
+; -7.211 ; clockgen:clock_gen|count[15] ; clockgen:clock_gen|count[16] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.878      ;
+; -7.209 ; clockgen:clock_gen|count[5]  ; clockgen:clock_gen|count[25] ; clock        ; clock       ; 1.000        ; 0.000      ; 7.876      ;
++--------+------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clock'                                                                                                                                      ;
++--------+------------------------------+------------------------------+----------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                    ; To Node                      ; Launch Clock         ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------------+------------------------------+----------------------+-------------+--------------+------------+------------+
+; -1.968 ; clockgen:clock_gen|b         ; clockgen:clock_gen|b         ; clockgen:clock_gen|b ; clock       ; 0.000        ; 3.699      ; 2.328      ;
+; -1.468 ; clockgen:clock_gen|b         ; clockgen:clock_gen|b         ; clockgen:clock_gen|b ; clock       ; -0.500       ; 3.699      ; 2.328      ;
+; 2.989  ; clockgen:clock_gen|count[26] ; clockgen:clock_gen|count[26] ; clock                ; clock       ; 0.000        ; 0.000      ; 3.210      ;
+; 3.026  ; clockgen:clock_gen|count[30] ; clockgen:clock_gen|count[30] ; clock                ; clock       ; 0.000        ; 0.000      ; 3.247      ;
+; 3.422  ; clockgen:clock_gen|count[31] ; clockgen:clock_gen|count[31] ; clock                ; clock       ; 0.000        ; 0.000      ; 3.643      ;
+; 3.472  ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[12] ; clock                ; clock       ; 0.000        ; 0.000      ; 3.693      ;
+; 3.492  ; clockgen:clock_gen|count[27] ; clockgen:clock_gen|count[27] ; clock                ; clock       ; 0.000        ; 0.000      ; 3.713      ;
+; 3.554  ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[6]  ; clock                ; clock       ; 0.000        ; 0.000      ; 3.775      ;
+; 3.694  ; clockgen:clock_gen|count[5]  ; clockgen:clock_gen|count[5]  ; clock                ; clock       ; 0.000        ; 0.000      ; 3.915      ;
+; 3.817  ; clockgen:clock_gen|count[5]  ; clockgen:clock_gen|count[12] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.038      ;
+; 3.899  ; clockgen:clock_gen|count[5]  ; clockgen:clock_gen|count[6]  ; clock                ; clock       ; 0.000        ; 0.000      ; 4.120      ;
+; 3.920  ; clockgen:clock_gen|count[3]  ; clockgen:clock_gen|count[3]  ; clock                ; clock       ; 0.000        ; 0.000      ; 4.141      ;
+; 3.926  ; clockgen:clock_gen|count[14] ; clockgen:clock_gen|count[14] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.147      ;
+; 3.973  ; clockgen:clock_gen|count[28] ; clockgen:clock_gen|count[16] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.194      ;
+; 3.974  ; clockgen:clock_gen|count[28] ; clockgen:clock_gen|count[21] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.195      ;
+; 3.976  ; clockgen:clock_gen|count[28] ; clockgen:clock_gen|count[24] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.197      ;
+; 3.978  ; clockgen:clock_gen|count[28] ; clockgen:clock_gen|count[19] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.199      ;
+; 3.979  ; clockgen:clock_gen|count[28] ; clockgen:clock_gen|count[22] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.200      ;
+; 3.980  ; clockgen:clock_gen|count[28] ; clockgen:clock_gen|count[20] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.201      ;
+; 3.981  ; clockgen:clock_gen|count[28] ; clockgen:clock_gen|count[18] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.202      ;
+; 4.011  ; clockgen:clock_gen|count[1]  ; clockgen:clock_gen|count[12] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.232      ;
+; 4.052  ; clockgen:clock_gen|count[0]  ; clockgen:clock_gen|count[0]  ; clock                ; clock       ; 0.000        ; 0.000      ; 4.273      ;
+; 4.091  ; clockgen:clock_gen|count[11] ; clockgen:clock_gen|count[11] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.312      ;
+; 4.093  ; clockgen:clock_gen|count[1]  ; clockgen:clock_gen|count[6]  ; clock                ; clock       ; 0.000        ; 0.000      ; 4.314      ;
+; 4.113  ; clockgen:clock_gen|count[13] ; clockgen:clock_gen|count[13] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.334      ;
+; 4.115  ; clockgen:clock_gen|count[26] ; clockgen:clock_gen|count[27] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.336      ;
+; 4.124  ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[11] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.345      ;
+; 4.127  ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[13] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.348      ;
+; 4.130  ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[14] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.351      ;
+; 4.157  ; clockgen:clock_gen|count[23] ; clockgen:clock_gen|count[16] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.378      ;
+; 4.158  ; clockgen:clock_gen|count[23] ; clockgen:clock_gen|count[21] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.379      ;
+; 4.160  ; clockgen:clock_gen|count[30] ; clockgen:clock_gen|count[31] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.381      ;
+; 4.160  ; clockgen:clock_gen|count[23] ; clockgen:clock_gen|count[24] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.381      ;
+; 4.162  ; clockgen:clock_gen|count[9]  ; clockgen:clock_gen|count[12] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.383      ;
+; 4.162  ; clockgen:clock_gen|count[23] ; clockgen:clock_gen|count[19] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.383      ;
+; 4.163  ; clockgen:clock_gen|count[23] ; clockgen:clock_gen|count[22] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.384      ;
+; 4.164  ; clockgen:clock_gen|count[23] ; clockgen:clock_gen|count[20] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.385      ;
+; 4.165  ; clockgen:clock_gen|count[23] ; clockgen:clock_gen|count[18] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.386      ;
+; 4.176  ; clockgen:clock_gen|count[6]  ; clockgen:clock_gen|count[6]  ; clock                ; clock       ; 0.000        ; 0.000      ; 4.397      ;
+; 4.203  ; clockgen:clock_gen|count[26] ; clockgen:clock_gen|count[30] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.424      ;
+; 4.244  ; clockgen:clock_gen|count[9]  ; clockgen:clock_gen|count[6]  ; clock                ; clock       ; 0.000        ; 0.000      ; 4.465      ;
+; 4.253  ; clockgen:clock_gen|count[17] ; clockgen:clock_gen|count[16] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.474      ;
+; 4.254  ; clockgen:clock_gen|count[17] ; clockgen:clock_gen|count[21] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.475      ;
+; 4.256  ; clockgen:clock_gen|count[17] ; clockgen:clock_gen|count[24] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.477      ;
+; 4.258  ; clockgen:clock_gen|count[17] ; clockgen:clock_gen|count[19] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.479      ;
+; 4.259  ; clockgen:clock_gen|count[17] ; clockgen:clock_gen|count[22] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.480      ;
+; 4.260  ; clockgen:clock_gen|count[17] ; clockgen:clock_gen|count[20] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.481      ;
+; 4.261  ; clockgen:clock_gen|count[17] ; clockgen:clock_gen|count[18] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.482      ;
+; 4.276  ; clockgen:clock_gen|count[27] ; clockgen:clock_gen|count[30] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.497      ;
+; 4.312  ; clockgen:clock_gen|count[25] ; clockgen:clock_gen|count[16] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.533      ;
+; 4.313  ; clockgen:clock_gen|count[25] ; clockgen:clock_gen|count[21] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.534      ;
+; 4.315  ; clockgen:clock_gen|count[25] ; clockgen:clock_gen|count[24] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.536      ;
+; 4.317  ; clockgen:clock_gen|count[25] ; clockgen:clock_gen|count[19] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.538      ;
+; 4.318  ; clockgen:clock_gen|count[25] ; clockgen:clock_gen|count[22] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.539      ;
+; 4.319  ; clockgen:clock_gen|count[25] ; clockgen:clock_gen|count[20] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.540      ;
+; 4.320  ; clockgen:clock_gen|count[25] ; clockgen:clock_gen|count[18] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.541      ;
+; 4.337  ; clockgen:clock_gen|count[2]  ; clockgen:clock_gen|count[12] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.558      ;
+; 4.383  ; clockgen:clock_gen|count[13] ; clockgen:clock_gen|count[12] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.604      ;
+; 4.419  ; clockgen:clock_gen|count[2]  ; clockgen:clock_gen|count[6]  ; clock                ; clock       ; 0.000        ; 0.000      ; 4.640      ;
+; 4.422  ; clockgen:clock_gen|count[1]  ; clockgen:clock_gen|count[1]  ; clock                ; clock       ; 0.000        ; 0.000      ; 4.643      ;
+; 4.428  ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|b         ; clock                ; clock       ; 0.000        ; 0.000      ; 4.649      ;
+; 4.465  ; clockgen:clock_gen|count[13] ; clockgen:clock_gen|count[6]  ; clock                ; clock       ; 0.000        ; 0.000      ; 4.686      ;
+; 4.469  ; clockgen:clock_gen|count[5]  ; clockgen:clock_gen|count[11] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.690      ;
+; 4.472  ; clockgen:clock_gen|count[5]  ; clockgen:clock_gen|count[13] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.693      ;
+; 4.475  ; clockgen:clock_gen|count[5]  ; clockgen:clock_gen|count[14] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.696      ;
+; 4.534  ; clockgen:clock_gen|count[12] ; clockgen:clock_gen|count[12] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.755      ;
+; 4.551  ; clockgen:clock_gen|count[2]  ; clockgen:clock_gen|count[2]  ; clock                ; clock       ; 0.000        ; 0.000      ; 4.772      ;
+; 4.561  ; clockgen:clock_gen|count[4]  ; clockgen:clock_gen|count[4]  ; clock                ; clock       ; 0.000        ; 0.000      ; 4.782      ;
+; 4.590  ; clockgen:clock_gen|count[3]  ; clockgen:clock_gen|count[5]  ; clock                ; clock       ; 0.000        ; 0.000      ; 4.811      ;
+; 4.616  ; clockgen:clock_gen|count[12] ; clockgen:clock_gen|count[6]  ; clock                ; clock       ; 0.000        ; 0.000      ; 4.837      ;
+; 4.622  ; clockgen:clock_gen|count[26] ; clockgen:clock_gen|count[31] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.843      ;
+; 4.663  ; clockgen:clock_gen|count[1]  ; clockgen:clock_gen|count[11] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.884      ;
+; 4.665  ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[16] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.886      ;
+; 4.666  ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[21] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.887      ;
+; 4.666  ; clockgen:clock_gen|count[1]  ; clockgen:clock_gen|count[13] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.887      ;
+; 4.669  ; clockgen:clock_gen|count[1]  ; clockgen:clock_gen|count[14] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.890      ;
+; 4.682  ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[24] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.903      ;
+; 4.684  ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[19] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.905      ;
+; 4.686  ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[22] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.907      ;
+; 4.687  ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[20] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.908      ;
+; 4.688  ; clockgen:clock_gen|count[10] ; clockgen:clock_gen|count[18] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.909      ;
+; 4.691  ; clockgen:clock_gen|count[4]  ; clockgen:clock_gen|count[5]  ; clock                ; clock       ; 0.000        ; 0.000      ; 4.912      ;
+; 4.695  ; clockgen:clock_gen|count[27] ; clockgen:clock_gen|count[31] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.916      ;
+; 4.699  ; clockgen:clock_gen|count[2]  ; clockgen:clock_gen|count[5]  ; clock                ; clock       ; 0.000        ; 0.000      ; 4.920      ;
+; 4.725  ; clockgen:clock_gen|count[2]  ; clockgen:clock_gen|count[3]  ; clock                ; clock       ; 0.000        ; 0.000      ; 4.946      ;
+; 4.730  ; clockgen:clock_gen|count[29] ; clockgen:clock_gen|count[30] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.951      ;
+; 4.734  ; clockgen:clock_gen|count[22] ; clockgen:clock_gen|count[16] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.955      ;
+; 4.735  ; clockgen:clock_gen|count[22] ; clockgen:clock_gen|count[21] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.956      ;
+; 4.737  ; clockgen:clock_gen|count[22] ; clockgen:clock_gen|count[24] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.958      ;
+; 4.739  ; clockgen:clock_gen|count[22] ; clockgen:clock_gen|count[19] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.960      ;
+; 4.740  ; clockgen:clock_gen|count[22] ; clockgen:clock_gen|count[22] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.961      ;
+; 4.741  ; clockgen:clock_gen|count[22] ; clockgen:clock_gen|count[20] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.962      ;
+; 4.742  ; clockgen:clock_gen|count[22] ; clockgen:clock_gen|count[18] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.963      ;
+; 4.765  ; clockgen:clock_gen|count[19] ; clockgen:clock_gen|count[16] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.986      ;
+; 4.766  ; clockgen:clock_gen|count[19] ; clockgen:clock_gen|count[21] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.987      ;
+; 4.768  ; clockgen:clock_gen|count[19] ; clockgen:clock_gen|count[24] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.989      ;
+; 4.770  ; clockgen:clock_gen|count[19] ; clockgen:clock_gen|count[19] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.991      ;
+; 4.771  ; clockgen:clock_gen|count[19] ; clockgen:clock_gen|count[22] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.992      ;
+; 4.772  ; clockgen:clock_gen|count[19] ; clockgen:clock_gen|count[20] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.993      ;
+; 4.773  ; clockgen:clock_gen|count[19] ; clockgen:clock_gen|count[18] ; clock                ; clock       ; 0.000        ; 0.000      ; 4.994      ;
++--------+------------------------------+------------------------------+----------------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clockgen:clock_gen|b'                                                                                         ;
++-------+-----------+-----------+----------------------+----------------------+--------------+------------+------------+
+; Slack ; From Node ; To Node   ; Launch Clock         ; Latch Clock          ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-----------+----------------------+----------------------+--------------+------------+------------+
+; 2.116 ; count[16] ; count[16] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.337      ;
+; 2.116 ; count[6]  ; count[6]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.337      ;
+; 2.117 ; count[23] ; count[23] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; count[13] ; count[13] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.338      ;
+; 2.126 ; count[25] ; count[25] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; count[18] ; count[18] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; count[17] ; count[17] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; count[15] ; count[15] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; count[8]  ; count[8]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; count[7]  ; count[7]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.347      ;
+; 2.135 ; y_p.s7    ; y_p.s7    ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.356      ;
+; 2.141 ; count[26] ; count[26] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.362      ;
+; 2.151 ; count[27] ; count[27] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.372      ;
+; 2.153 ; count[28] ; count[28] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.374      ;
+; 2.221 ; count[24] ; count[24] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221 ; count[19] ; count[19] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221 ; count[14] ; count[14] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221 ; count[9]  ; count[9]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.442      ;
+; 2.229 ; count[1]  ; count[1]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.450      ;
+; 2.230 ; count[31] ; count[31] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.451      ;
+; 2.230 ; count[21] ; count[21] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.451      ;
+; 2.230 ; count[11] ; count[11] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.451      ;
+; 2.231 ; count[22] ; count[22] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; count[20] ; count[20] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; count[12] ; count[12] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; count[10] ; count[10] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.452      ;
+; 2.232 ; count[0]  ; count[0]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.453      ;
+; 2.242 ; count[30] ; count[30] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.463      ;
+; 2.250 ; count[29] ; count[29] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.471      ;
+; 2.285 ; y_p.s3    ; y_p.s3    ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.506      ;
+; 2.342 ; y_p.s5    ; y_p.s6    ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.563      ;
+; 2.382 ; y_p.s7    ; y_p.s8    ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.603      ;
+; 2.478 ; count[5]  ; count[5]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.699      ;
+; 2.513 ; count[2]  ; count[2]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.734      ;
+; 2.514 ; count[4]  ; count[4]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.735      ;
+; 2.586 ; y_p.s3    ; y_p.s4    ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.807      ;
+; 2.605 ; count[3]  ; count[3]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.826      ;
+; 2.682 ; y_p.s1    ; y_p.s1    ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 2.903      ;
+; 2.948 ; count[16] ; count[17] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.169      ;
+; 2.948 ; count[6]  ; count[7]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.169      ;
+; 2.949 ; count[23] ; count[24] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.170      ;
+; 2.949 ; count[13] ; count[14] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.170      ;
+; 2.958 ; count[18] ; count[19] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.179      ;
+; 2.958 ; count[17] ; count[18] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.179      ;
+; 2.958 ; count[8]  ; count[9]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.179      ;
+; 2.958 ; count[7]  ; count[8]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.179      ;
+; 2.973 ; count[26] ; count[27] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.194      ;
+; 2.983 ; count[27] ; count[28] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.204      ;
+; 2.985 ; count[28] ; count[29] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.206      ;
+; 3.033 ; y_p.s5    ; y_p.s5    ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.254      ;
+; 3.059 ; count[16] ; count[18] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.280      ;
+; 3.059 ; count[6]  ; count[8]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.280      ;
+; 3.060 ; count[23] ; count[25] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.281      ;
+; 3.060 ; count[13] ; count[15] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.281      ;
+; 3.069 ; count[18] ; count[20] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.290      ;
+; 3.069 ; count[8]  ; count[10] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.290      ;
+; 3.069 ; count[17] ; count[19] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.290      ;
+; 3.069 ; count[7]  ; count[9]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.290      ;
+; 3.084 ; count[26] ; count[28] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.305      ;
+; 3.094 ; count[27] ; count[29] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.315      ;
+; 3.096 ; count[28] ; count[30] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.317      ;
+; 3.161 ; count[24] ; count[25] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.382      ;
+; 3.161 ; count[14] ; count[15] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.382      ;
+; 3.161 ; count[19] ; count[20] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.382      ;
+; 3.161 ; count[9]  ; count[10] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.382      ;
+; 3.169 ; count[1]  ; count[2]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.390      ;
+; 3.170 ; count[21] ; count[22] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.391      ;
+; 3.170 ; count[11] ; count[12] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.391      ;
+; 3.170 ; count[16] ; count[19] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.391      ;
+; 3.170 ; count[6]  ; count[9]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.391      ;
+; 3.171 ; count[22] ; count[23] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.392      ;
+; 3.171 ; count[12] ; count[13] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.392      ;
+; 3.180 ; count[17] ; count[20] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.401      ;
+; 3.180 ; count[7]  ; count[10] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.401      ;
+; 3.190 ; count[29] ; count[30] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.411      ;
+; 3.195 ; count[26] ; count[29] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.416      ;
+; 3.205 ; count[27] ; count[30] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.426      ;
+; 3.280 ; count[1]  ; count[3]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.501      ;
+; 3.281 ; count[21] ; count[23] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.502      ;
+; 3.281 ; count[11] ; count[13] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.502      ;
+; 3.281 ; count[16] ; count[20] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.502      ;
+; 3.281 ; count[6]  ; count[10] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.502      ;
+; 3.282 ; count[22] ; count[24] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.503      ;
+; 3.282 ; count[12] ; count[14] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.503      ;
+; 3.306 ; count[26] ; count[30] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.527      ;
+; 3.345 ; count[2]  ; count[3]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.566      ;
+; 3.346 ; count[4]  ; count[5]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.567      ;
+; 3.391 ; count[1]  ; count[4]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.612      ;
+; 3.392 ; count[21] ; count[24] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.613      ;
+; 3.392 ; count[11] ; count[14] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.613      ;
+; 3.393 ; count[22] ; count[25] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.614      ;
+; 3.393 ; count[12] ; count[15] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.614      ;
+; 3.423 ; y_p.s3    ; y_p.s5    ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.644      ;
+; 3.456 ; count[2]  ; count[4]  ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.677      ;
+; 3.492 ; count[20] ; count[25] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; count[20] ; count[24] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; count[20] ; count[23] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; count[20] ; count[22] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; count[20] ; count[21] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; count[10] ; count[15] ; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 0.000        ; 0.000      ; 3.713      ;
++-------+-----------+-----------+----------------------+----------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Setup Transfers                                                                         ;
++----------------------+----------------------+----------+----------+----------+----------+
+; From Clock           ; To Clock             ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++----------------------+----------------------+----------+----------+----------+----------+
+; clock                ; clock                ; 1328     ; 0        ; 0        ; 0        ;
+; clockgen:clock_gen|b ; clock                ; 1        ; 1        ; 0        ; 0        ;
+; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 6209     ; 0        ; 0        ; 0        ;
++----------------------+----------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------+
+; Hold Transfers                                                                          ;
++----------------------+----------------------+----------+----------+----------+----------+
+; From Clock           ; To Clock             ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++----------------------+----------------------+----------+----------+----------+----------+
+; clock                ; clock                ; 1328     ; 0        ; 0        ; 0        ;
+; clockgen:clock_gen|b ; clock                ; 1        ; 1        ; 0        ; 0        ;
+; clockgen:clock_gen|b ; clockgen:clock_gen|b ; 6209     ; 0        ; 0        ; 0        ;
++----------------------+----------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 41    ; 41   ;
+; Unconstrained Output Ports      ; 8     ; 8    ;
+; Unconstrained Output Port Paths ; 16    ; 16   ;
++---------------------------------+-------+------+
+
+
++------------------------------------------------------------------+
+; Clock Status Summary                                             ;
++----------------------+----------------------+------+-------------+
+; Target               ; Clock                ; Type ; Status      ;
++----------------------+----------------------+------+-------------+
+; clock                ; clock                ; Base ; Constrained ;
+; clockgen:clock_gen|b ; clockgen:clock_gen|b ; Base ; Constrained ;
++----------------------+----------------------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; E_OUT[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; E_OUT[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; N_OUT[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; N_OUT[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; S_OUT[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; S_OUT[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; W_OUT[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; W_OUT[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; E_OUT[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; E_OUT[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; N_OUT[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; N_OUT[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; S_OUT[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; S_OUT[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; W_OUT[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; W_OUT[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Fri Jun 14 10:25:19 2024
+Info: Command: quartus_sta TLC -c TLC
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'TLC.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clockgen:clock_gen|b clockgen:clock_gen|b
+    Info (332105): create_clock -period 1.000 -name clock clock
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -11.899
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -11.899            -450.373 clockgen:clock_gen|b 
+    Info (332119):    -7.904            -214.917 clock 
+Info (332146): Worst-case hold slack is -1.968
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.968              -1.968 clock 
+    Info (332119):     2.116               0.000 clockgen:clock_gen|b 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 clock 
+    Info (332119):     0.234               0.000 clockgen:clock_gen|b 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4682 megabytes
+    Info: Processing ended: Fri Jun 14 10:25:20 2024
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+

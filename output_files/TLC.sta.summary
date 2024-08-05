@@ -1,0 +1,29 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'clockgen:clock_gen|b'
+Slack : -11.899
+TNS   : -450.373
+
+Type  : Setup 'clock'
+Slack : -7.904
+TNS   : -214.917
+
+Type  : Hold 'clock'
+Slack : -1.968
+TNS   : -1.968
+
+Type  : Hold 'clockgen:clock_gen|b'
+Slack : 2.116
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'clock'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'clockgen:clock_gen|b'
+Slack : 0.234
+TNS   : 0.000
+
+------------------------------------------------------------

@@ -1,0 +1,29 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity clockgen is
+port ( clock : in std_logic;
+		 clk : out std_logic := '0');
+end entity;
+
+architecture body1 of clockgen is
+
+begin
+process(clock)
+	 signal count : integer := 0;
+    signal b : std_logic := '0';
+BEGIN
+    -- Clock generation. For a 50 MHz input clock, this generates a 1 Hz output clock.
+    PROCESS (clk1)
+    BEGIN
+        IF RISING_EDGE(clk1) THEN
+            count <= count + 1;
+            IF count = 25000000 - 1 THEN
+                b <= NOT b;
+                count <= 0;
+            END IF;
+        END IF;
+        clk <= b;
+    END PROCESS;
+END ARCHITECTURE Behavioral;
